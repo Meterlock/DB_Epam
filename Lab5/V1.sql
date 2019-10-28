@@ -36,7 +36,7 @@ RETURNS TABLE AS RETURN (
 		Employee.ModifiedDate
 	FROM HumanResources.Employee
 	JOIN HumanResources.EmployeeDepartmentHistory ON EmployeeDepartmentHistory.BusinessEntityID = Employee.BusinessEntityID
-	WHERE DepartmentID = @DepartmentID AND EndDate IS NULL AND StartDate > '2005'
+	WHERE DepartmentID = @DepartmentID AND EndDate IS NULL AND StartDate >= '2005'
 	ORDER BY BirthDate ASC
 );
 GO
@@ -85,7 +85,7 @@ RETURNS @result TABLE(
 		Employee.ModifiedDate
 	FROM HumanResources.Employee
 	JOIN HumanResources.EmployeeDepartmentHistory ON EmployeeDepartmentHistory.BusinessEntityID = Employee.BusinessEntityID
-	WHERE DepartmentID = @DepartmentID AND EndDate IS NULL AND StartDate > '2005'
+	WHERE DepartmentID = @DepartmentID AND EndDate IS NULL AND StartDate >= '2005'
 	ORDER BY BirthDate ASC
 	RETURN
 END;
