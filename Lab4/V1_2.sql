@@ -43,7 +43,7 @@ BEGIN
 	FROM inserted;
 	INSERT INTO Production.ProductSubcategory (ProductCategoryID, Name, rowguid, ModifiedDate)
 	SELECT 
-		(SELECT SCOPE_IDENTITY()), SubCategoryName, SubCategoryRowguid, SubCategoryModifiedDate
+		SCOPE_IDENTITY(), SubCategoryName, SubCategoryRowguid, SubCategoryModifiedDate
 	FROM inserted;
 END;
 GO
